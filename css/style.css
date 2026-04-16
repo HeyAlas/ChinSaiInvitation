@@ -102,6 +102,21 @@ a   { text-decoration: none; color: inherit; }
 /* ============================================================
    ✦ HERO
 ============================================================ */
+
+#hero {
+  background-position: center 25%; /* adjust until face is perfect */
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: inherit;
+  transform: scale(1.05);
+  z-index: 0;
+}
 #hero {
   position: relative;
   min-height: 100vh;
@@ -197,7 +212,7 @@ a   { text-decoration: none; color: inherit; }
 .hero-venue {
   font-family: var(--font-serif);
   font-size: clamp(var(--text-sm), 2.5vw, var(--text-md));
-  letter-spacing: 0.3em;
+ letter-spacing: 0.18em; /* was too wide */
   text-transform: uppercase;
   color: var(--beige);
   margin-top: 8px;
@@ -383,8 +398,8 @@ a   { text-decoration: none; color: inherit; }
   font-family: var(--font-serif);
   font-size: var(--text-base);
   color: var(--espresso);
-  font-style: italic;
-  line-height: 1.5;
+  font-style: bold;
+  line-height: 2;
 }
 
 /* ============================================================
@@ -627,9 +642,10 @@ a   { text-decoration: none; color: inherit; }
 #rsvp { background-color: var(--sand); }
 
 .rsvp-form {
-  max-width: 580px;
-  margin: 0 auto;
-  text-align: left;
+  background: var(--linen);
+  padding: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--beige);
 }
 
 .form-group { margin-bottom: 28px; }
