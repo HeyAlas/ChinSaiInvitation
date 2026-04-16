@@ -73,10 +73,9 @@
       <div class="venue-block">
         <h4 class="venue-title">Venue</h4>
         <p class="venue-name"> Jorelyn's Place </p>
-        <p class="venue-address"> National Highway (Looc, Infront of the sunrise bar)</p>
+        <p class="venue-address"> National Highway (Looc, Infront of the sunrise bar, beside Skygo Marketing)</p>
         <div class="map-wrapper">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d490.98046343727873!2d123.2687089820266!3d10.111876437848027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1776264491606!5m2!1sen!2sph" width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d272.9801029572345!2d123.26842898282136!3d10.111782678360692!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1776301636580!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -387,18 +386,21 @@
             <option value="4">4 guests</option>
           </select>
         </div>
+<div class="form-group">
+  <label>Will you attend?</label>
 
-        <div class="form-group">
-          <label>Will you attend?</label>
-          <div class="radio-group">
-            <label class="radio-label">
-              <input type="radio" name="attending" value="yes" required /> Yes, I'll be there! 🎉
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="attending" value="no" /> Sorry, I can't make it
-            </label>
-          </div>
-        </div>
+  <div class="attendance-options">
+    <label class="option-card">
+      <input type="radio" name="attending" value="yes" required />
+      <span>Yes, I'll be there!</span>
+    </label>
+
+    <label class="option-card">
+      <input type="radio" name="attending" value="no" />
+      <span>Sorry, I can't make it</span>
+    </label>
+  </div>
+</div>
 
         <div class="form-group">
           <label for="message">Message for Princess Rexaine (optional)</label>
@@ -438,7 +440,7 @@
         <div class="masonry-hover">View Photo</div>
       </div>
       <div class="masonry-item" onclick="openLightbox(4)">
-        <img src="assets/images/debutant.png" alt="Gallery 5" loading="lazy" onerror="this.src='https://placehold.co/400x600/D7C9B8/4A342A?text=Photo+5'" />
+        <img src="assets/images/.png" alt="Gallery 5" loading="lazy" onerror="this.src='https://placehold.co/400x600/D7C9B8/4A342A?text=Photo+5'" />
         <div class="masonry-hover">View Photo</div>
       </div>
       <div class="masonry-item span-tall" onclick="openLightbox(5)">
@@ -446,11 +448,11 @@
         <div class="masonry-hover">View Photo</div>
       </div>
       <div class="masonry-item" onclick="openLightbox(6)">
-        <img src="assets/images/sai7.JPG" alt="Gallery 7" loading="lazy" onerror="this.src='https://placehold.co/400x500/B2967D/F5F1EA?text=Photo+7'" />
+        <img src="assets/images/debutant.png" alt="Gallery 7" loading="lazy" onerror="this.src='https://placehold.co/400x500/B2967D/F5F1EA?text=Photo+7'" />
         <div class="masonry-hover">View Photo</div>
       </div>
       <div class="masonry-item" onclick="openLightbox(7)">
-        <img src="assets/images/sai8.JPG" alt="Gallery 8" loading="lazy" onerror="this.src='https://placehold.co/400x400/4A342A/F5F1EA?text=Photo+8'" />
+        <img src="assets/images/" alt="Gallery 8" loading="lazy" onerror="this.src='https://placehold.co/400x400/4A342A/F5F1EA?text=Photo+8'" />
         <div class="masonry-hover">View Photo</div>
       </div>
       <div class="masonry-item" onclick="openLightbox(8)">
@@ -476,20 +478,23 @@
   <!-- ============================================================
        🏁 FOOTER
   ============================================================ -->
-  <footer id="footer" class="fade-in">
-    <div class="footer-inner">
-      <h2 class="footer-script">See You There</h2>
-      <p class="footer-message">April 24, 2026 &nbsp;✦&nbsp; Jorelyn's Place</p>
-      <p class="footer-name">Princess Rexaine</p>
-      <div class="gold-line"></div>
-      <p class="footer-credit">Made by Ace Grant Kyamko✦</p>
-     <button class="music-btn" id="musicToggle">🎵 Pause Music</button>
-<audio id="bgMusic" loop autoplay>
-  <source src="assets/supernatural.mp3" type="audio/mpeg" />
-</audio>
-      </audio>
-    </div>
-  </footer>
+<footer id="footer" class="fade-in">
+  <div class="footer-overlay"></div>
+
+  <div class="footer-inner">
+    <h2 class="footer-script">See You There</h2>
+    <p class="footer-message">April 24, 2026 &nbsp;✦&nbsp; Jorelyn's Place</p>
+    <p class="footer-name">Princess Rexaine</p>
+    <div class="gold-line"></div>
+    <p class="footer-credit">Made by Ace Grant Kyamko</p>
+
+    <button class="music-btn" id="musicToggle">Pause Music</button>
+
+    <audio id="bgMusic" loop autoplay>
+      <source src="assets/supernatural.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+</footer>
 
 
   <script src="countdown/countdown.js"></script>
