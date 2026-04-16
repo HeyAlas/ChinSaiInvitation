@@ -3,7 +3,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // ✅ Use LOCAL time (no timezone bugs)
-  const eventDate = new Date(2026, 3, 24, 16, 0, 0).getTime(); // Updated to 4:00 PM (16:00)
+  const eventDate = new Date(2026, 3, 24, 17, 0, 0).getTime(); // Updated to 5:00 PM (17:00)
 
   const countdownEl = document.getElementById("countdown");
   const daysEl = document.getElementById("days");

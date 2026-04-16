@@ -352,54 +352,107 @@ a   { text-decoration: none; color: inherit; }
 }
 
 /* ============================================================
-   ✦ TIMELINE
+   ✦ TIMELINE — Vertical Gold Line Style
 ============================================================ */
 #program { background-color: var(--sand); }
 
-.timeline {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 36px;
+.timeline-v {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 8px 0;
 }
 
-.timeline-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 140px;
-  text-align: center;
+/* The vertical gold line */
+.timeline-v::before {
+  content: '';
+  position: absolute;
+  left: 52px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--gold) 8%,
+    var(--gold) 92%,
+    transparent
+  );
 }
 
-.timeline-icon {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  background: var(--linen);
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  width: 66px;
-  height: 66px;
+.tl-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 36px;
+  position: relative;
 }
 
-.timeline-time {
+.tl-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Gold number on the left */
+.tl-number {
   font-family: var(--font-serif);
-  font-size: var(--text-base);
-  color: var(--gold);
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 600;
+  color: var(--gold);
+  width: 44px;
+  flex-shrink: 0;
+  text-align: right;
+  padding-top: 2px;
+  letter-spacing: 0.05em;
 }
 
-.timeline-event {
+/* Gold dot on the line */
+.tl-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--linen);
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
+  margin: 4px 20px 0 9px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.tl-item:hover .tl-dot {
+  background: var(--gold);
+}
+
+/* Event content on the right */
+.tl-content {
+  text-align: left;
+  padding-top: 0;
+}
+
+.tl-time {
   font-family: var(--font-serif);
-  font-size: var(--text-base);
+  font-size: clamp(var(--text-sm), 5vw, var(--text-base));
+  color: var(--camel);
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.tl-event {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--text-base), 2.5vw, var(--text-md));
   color: var(--espresso);
-  font-style: bold;
-  line-height: 2;
+  font-weight: 650;
+  line-height: 2.1;
+  font-style: italic;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .timeline-v::before { left: 40px; }
+  .tl-number { width: 32px; font-size: 1rem; }
+  .tl-dot    { margin: 4px 14px 0 8px; }
+  .tl-item   { margin-bottom: 28px; }
 }
 
 /* ============================================================
@@ -557,85 +610,105 @@ a   { text-decoration: none; color: inherit; }
   color: var(--camel);
   text-align: center;
 }
-
-/* ============================================================
-   ✦ EIGHTEEN SPECIALS — TABS
-============================================================ */
+/* ============================================================    ✦ EIGHTEEN SPECIALS — TABS ============================================================ */
 #eighteen {
-  background-color: var(--espresso);
-  color: var(--linen);
+   background-color: var(--espresso);
+   color: var(--linen);
+   opacity: 0;
+   animation: fadeIn 1s ease-out forwards;
 }
 
-#eighteen .section-script { color: var(--gold-light); }
+#eighteen .section-script {
+   color: var(--gold-light);
+}
 
 .eighteen-tabs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 36px;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 12px;
+   margin-bottom: 36px;
 }
 
 .tab-btn {
-  padding: 12px 24px;
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold-light);
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: var(--transition);
+   padding: 12px 24px;
+   background: transparent;
+   border: 1px solid var(--gold);
+   color: var(--gold-light);
+   font-family: var(--font-serif);
+   font-size: var(--text-base);
+   letter-spacing: 0.08em;
+   cursor: pointer;
+   border-radius: 4px;
+   transition: var(--transition);
 }
 
-.tab-btn:hover,
-.tab-btn.active {
-  background: var(--gold);
-  color: var(--espresso);
+.tab-btn:hover, .tab-btn.active {
+   background: var(--gold);
+   color: var(--espresso);
 }
 
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+.tab-content {
+   display: none;
+   opacity: 0;
+   transition: opacity 0.6s ease-in-out;
+}
+
+.tab-content.active {
+   display: block;
+   opacity: 1;
+}
 
 .eighteen-title {
-  font-family: var(--font-script);
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  color: var(--gold-light);
-  margin-bottom: 28px;
-  text-align: center;
+   font-family: var(--font-script);
+   font-size: clamp(2.5rem, 8vw, 4rem);
+   color: var(--gold-light);
+   margin-bottom: 28px;
+   text-align: center;
+   opacity: 0;
+   animation: fadeIn 1s ease-out forwards 0.5s; /* Delay for title fade-in */
 }
 
 .eighteen-list {
-  list-style: none;
-  padding: 0;
-  max-width: 680px;
-  margin: 0 auto;
+   list-style: none;
+   padding: 0;
+   max-width: 680px;
+   margin: 0 auto;
 }
 
 .eighteen-list.two-col {
-  columns: 2;
-  column-gap: 40px;
-  text-align: left;
+   columns: 2;
+   column-gap: 40px;
+   text-align: left;
 }
 
 .eighteen-list li {
-  font-family: var(--font-serif);
-  font-size: clamp(var(--text-base), 2.5vw, var(--text-md));
-  color: var(--beige);
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(201,169,110,0.15);
-  letter-spacing: 0.03em;
-  break-inside: avoid;
-  line-height: 1.7;
+   font-family: var(--font-serif);
+   font-size: clamp(var(--text-base), 2.5vw, var(--text-md));
+   color: var(--beige);
+   padding: 8px 0;
+   border-bottom: 1px solid rgba(201,169,110,0.15);
+   letter-spacing: 0.03em;
+   break-inside: avoid;
+   line-height: 1.7;
+   opacity: 0;
+   animation: fadeIn 1s ease-out forwards;
 }
 
 .eighteen-list li::before {
-  content: "✦ ";
-  color: var(--gold);
-  font-size: 0.75rem;
+   content: "✦ ";
+   color: var(--gold);
+   font-size: 0.75rem;
 }
 
+@keyframes fadeIn {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
 /* ============================================================
    ✦ RSVP
 ============================================================ */
@@ -1048,3 +1121,54 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+/* Stardust effect */
+.stardust {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure it doesn't block other elements */
+    z-index: 1; /* Ensure it appears on top of other content but below actual interactive elements */
+}
+
+.stardust .particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: var(--gold); /* Adjust to the gold color you want */
+    border-radius: 50%;
+    animation: moveParticle 5s infinite;
+    opacity: 0;
+}
+
+@keyframes moveParticle {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-200px) translateX(100px); /* Adjust for random floating effect */
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(200px) translateX(-100px);
+        opacity: 0.8;
+    }
+}
+
+/* Add a little delay to each particle for randomness */
+.stardust .particle:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.stardust .particle:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.stardust .particle:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* You can add more nth-child selectors for more particles and randomness */
