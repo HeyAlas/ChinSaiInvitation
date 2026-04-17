@@ -1232,15 +1232,8 @@ footer {
 }
 /* Add a little delay to each particle for randomness */
 .stardust .particle:nth-child(1) {
-    animation-delay: 2s;
+    animation-delay: 0s;
 }
 
-.stardust .particle:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.stardust .particle:nth-child(3) {
-    animation-delay: 1s;
-}
 
 /* You can add more nth-child selectors for more particles and randomness */
