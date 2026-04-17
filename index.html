@@ -675,11 +675,10 @@ musicBtn.addEventListener('click', (e) => {
         const particle = document.createElement('div');
         particle.classList.add('particle');
         
-        // Randomly position the particle in the container
-        const randomX = Math.random() * window.innerWidth;
-        const randomY = Math.random() * window.innerHeight;
-        particle.style.left = `${randomX}px`;
-        particle.style.top = `${randomY}px`;
+       const randomX = Math.random() * 95; // use % instead of px
+  const randomY = Math.random() * 95;
+    particle.style.left = `${randomX}%`;
+    particle.style.top = `${randomY}%`;
         
         // Randomize animation delay and speed for each particle
         const delay = Math.random() * 5;
